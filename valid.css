@@ -1,0 +1,29 @@
+* {
+margin: 0
+}
+
+body {
+background-image: url('https://i.pinimg.com/originals/09/52/e9/0952e9d8c44d9e1fcc1e9b6da06ca49c.jpg');
+background-repeat: no-repeat; 
+}
+
+div {
+color: snow;
+padding: 15 px; 
+text-align: center;
+margin: 250px auto;
+width: 35%;
+}
+
+p:hover {
+color: darkslategray;
+background-color: rgba(240, 235, 227, .5);
+padding: 30px; 
+transition-duration: 2s;
+display: block;
+border-radius: 20px;
+font-size: 30px;
+font-weight: bold;
+}
+
+
