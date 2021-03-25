@@ -2,31 +2,119 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page
-    </title>
-</head>
-<body>
-    <div class="loginTemplate">
-        <h1>Login</h1>
-    </div>
-    <div class="loginForm">
-        <label for="userAdmin">User</label>
-            <input id="userAdmin" name="userAdmin" >
-        <label for="password">Password</label>
-            <input id="password" name="password" type="password">
-        <button type="submit" id="submitButton">submit</button>
-    </div>
-    <!-- untuk style hanya data sementara -->
-    <style>
-        .loginTemplate {
-            text-align: center;
-            margin-top: 200px;
+    <title>Login Page</title>
+    <style type="text/css">
+        /* * {
+            background-image: url('https://www.urbavorekitchen.com/wp-content/uploads/2020/11/Benefits-of-drinking-coffee.jpg');
+            background-repeat: no-repeat;
+            
+        } */
+        form {
+            width: 500px;
+            margin: 150px auto;
         }
-        .loginForm {
-            text-align: center;
+        div {
+            width: 100%;
+            margin: 1rem auto;
+        }
+        label {
+            display: block;
+            padding: 1rem;
+            font-size: 1.5rem;
+        }
+        input {
+            width: 97%;
+            padding: .5rem;
+            border: 3px solid rgba(112, 83, 4, 0.5);
+            font-size: 1.5rem;
+            margin-left: 0;
+            border-radius: 5px;
+        }
+        button {
+            margin: 1.5rem;
+            padding: .75rem;
+            width: 100px;
+            font-size: 20px;           
+            border: none;
+            outline: none;
+            cursor: pointer; 
+            border-radius: 5px;
+            font-weight: bold;
+            color: floralwhite;
+            background-color:brown;
         }
     </style>
+</head>
+<body>
+
+    <form action="index.html" method="POST">
+        <div>
+            <h1>Login</h1>
+        </div>
+        <div>
+            <label for="userAdmin">Username</label>
+            <input type="text" name="userAdmin" placeholder="Username">
+            <span></span>
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" name="password" placeholder="Password">
+            <span></span>
+        </div>
+            <button id="submitButton" type="button" onclick="newDoc()">submit</button>
+        
+        <!-- untuk style hanya data sementara -->
+    </form>
 </body>
 </html>
+<script type="text/javascript">
+    window.onload = () => {
+        this.sessionStorage.setItem("userAdmin", "test123")
+        this.sessionStorage.setItem("password", "test1234")
+    }
+    // console.log(this.sessionStorage.getItem("userAdmin"))
+    // console.log(this.sessionStorage.getItem("password"))
+
+    let input = document.getElementsByTagName('input')
+    let login = document.getElementById('submitButton')
+    let form = document.querySelector('form')
+    form.onsubmit = () => {return false}
+
+    login.onclick = () => {
+        login.onclick = () => {
+            if ((input[0].value != '') && (input[1].value != "")){
+                if ((input[0].value == this.sessionStorage.getItem("userAdmin")) && (input[0].value == this.sessionStorage.getItem("password"))){
+                    document.cookie = "userAdmin"+input[0].value
+                    document.cookie = "password"+input[1].value
+                    function newDoc() {window.location.assign("https://www.w3schools.com")}
+                }else {
+                    if (input[0].value != this.sessionStorage.getItem("userAdmin")){
+                        input[0].nextElementSibling.textContent = 'Username tidak Sesuai'
+                    setTimeout(() => {
+                        input[0].nextElementSibling.textContent = ''
+                    }, 2000)
+                    }
+                    if (input[1].value != this.sessionStorage.getItem("password")){
+                        input[1].nextElementSibling.textContent = 'Password tidak Sesuai'
+                    setTimeout(() => {
+                        input[1].nextElementSibling.textContent = ''
+                    }, 2000)
+                    }
+                }
+            } else {
+                if (input[0].value == ''){
+                    input[0].nextElementSibling.textContent = 'Username Kosong'
+                    setTimeout(() => {
+                        input[0].nextElementSibling.textContent = ''
+                    }, 2000)
+                }
+                if (input[1].value == ''){
+                    input[1].nextElementSibling.textContent = 'Password Kosong'
+                    setTimeout(() => {
+                        input[1].nextElementSibling.textContent = ''
+                    }, 2000)
+                }
+            }
+        }
+    }
+</script>
