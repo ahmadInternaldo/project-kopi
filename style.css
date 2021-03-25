@@ -36,12 +36,12 @@ li{
 .sideBar{
     flex: 20%;
     background-color: tomato;
-    height: 1000px ;
+    height: 1230px ;
 }
 .mainBar{
     flex:80%;
     background-color: teal;
-    height: 1000px;
+    height: 1230;
 }
 .row{
     display: flex;
@@ -73,19 +73,19 @@ li{
 .card{
     margin: auto;
     width: 200px;   
-    height: 350px;
+    height: 370px;
     background-color: tomato;
     
 }
 .namaBarang{
     padding-top: 10px;
 }
-.namaBarang h4{
+.card h4{
     text-align: center;
 }
-.gambar{
+.card#image img{
     margin: auto;
-    width:180px;
+    width: 180px;
 }
 .gambar img{
     width:180px;
@@ -109,8 +109,99 @@ li{
 }
 
 .addBasket form{
+    margin-top: 10px;
     text-align: center;
 }
 
-
 /*END CARD*/
+
+/*Footer */
+.footer{
+    width: 100%;
+    height: auto;
+    background-color: white;
+    display: flex;
+}
+
+.identity{
+    flex: 65%;
+    margin: auto 200px;
+
+}
+
+.identity h2{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.identity p{
+    margin: 10px 10px;
+    font-size: 16px;
+}
+
+.identity h4{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.checkoutID{
+    background-color: wheat;
+    flex: 35%;
+}
+.titleID{
+    display:flex;
+}
+
+#titleIDName{
+    flex: 25%;
+    text-align: center;
+}
+#titleIDPrice{
+    flex: 25%;
+    text-align: center;
+}
+
+#itemsName {
+    display:flex;
+    border: solid #333333 3px;
+}
+#itemsName p{
+    margin: 10px;
+    text-align: center;
+}
+#itemName{
+    flex: 25%;
+    text-align: left;
+    padding-left: 15px;
+}
+#itemPrice{
+    flex: 25%;
+    text-align: left;
+    padding-left: 15px;
+}
+#itemQuantity{
+    flex: 25%;
+    text-align: left;
+    padding-left: 15px;
+}
+#itemTotal{
+    flex: 25%;
+    text-align: left;
+    padding-left: 15px;
+}
+.totalItems{
+    display: flex;
+}
+.totalItems p{
+    margin-top: 20px;
+    margin-right: 20px;
+    flex: 50%;
+    text-align: right;
+    font-size: 50px;
+}
+
+.checkoutButton{
+    text-align: right;
+    margin: 25px;
+}
+
