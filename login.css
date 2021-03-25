@@ -1,0 +1,73 @@
+body {
+    background-image: url('https://www.urbavorekitchen.com/wp-content/uploads/2020/11/Benefits-of-drinking-coffee.jpg');
+    background-repeat: no-repeat;
+
+}
+form {
+    width: 500px;
+    margin: 150px auto;
+}
+div {
+    width: 100%;
+    margin: 1rem auto;
+}
+label {
+    display: block;
+    padding: 1rem;
+    font-size: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: seashell;
+    width: fit-content;
+    border-radius: 5px;
+}
+
+input {
+    width: 75%;
+    padding: .5rem;
+    border: 3px solid rgba(112, 83, 4, .5);
+    font-size: 1.5rem;
+    margin-left: 0;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: seashell;
+
+}
+input:hover {
+    width: 75%;
+    padding: .5rem;
+    border: 3px solid rgba(112, 83, 4, .5);
+    font-size: 1.5rem;
+    margin-left: 0;
+    border-radius: 5px;
+    background-color: rgba(240, 224, 224, 0.5);
+    color: rgb(51, 23, 3);
+    transition-duration: .5s;
+
+}
+button {
+    margin: 1.5rem;
+    padding: .75rem;
+    width: 100px;
+    font-size: 20px;           
+    border: none;
+    outline: none;
+    cursor: pointer; 
+    border-radius: 5px;
+    font-weight: bold;
+    color: floralwhite;
+    background-color:brown;
+}
+button:hover {
+    margin: 1.5rem;
+    padding: .75rem;
+    width: 100px;
+    font-size: 20px;           
+    border: none;
+    outline: none;
+    cursor: pointer; 
+    border-radius: 5px;
+    font-weight: bold;
+    color: rgb(53, 36, 3);
+    background-color:rgb(248, 241, 241);
+    transition-duration: .5s;
+}
