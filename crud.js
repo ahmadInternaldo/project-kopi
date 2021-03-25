@@ -1,159 +1,31 @@
-// /*
-// 1. have the database
-// 2. CRUD - create, update, delete
-// 3. 3 function
-//     1. create  - if the person wants to make more list?
-//     2. update - if wanna update the available supply or price
-//     3. delete - if don't wanna sell it anymore
-//     4. main function
-// */
-
-// let coffeeOnSaleList = [
-//     {
-//         name: "Kayo Sungai Penuh",
-//         price: 100000,
-//         quantity: 20,
-//         region: "Jambi",
-//     },
-//     {
-//         name: "Matchlock Blend",
-//         price: 120000,
-//         quantity: 20,
-//         region: "Toraja",
-//     },
-//     {
-//         name: "Aceh Coffee",
-//         price: 120000,
-//         quantity: 20,
-//         region: "Aceh",
-//     },
-// ]
-
-
-// //=========================================
-
-
-
-// function addNewCoffee(coffeeList, coffeeToAdd) {
-//     // let coffeeToAdd = {
-//     //     name: "Columbia Coffee",
-//     //     price: 100000,
-//     //     region: "Lampung",
-//     // }
-
-//     // console.log(coffeeList)
-//     let coffeeExist = false
-//     //make everything lower case
-//     let lowerCaseCoffeeList = coffeeList.map(function (element) {return element.name.toLowerCase()})
-//     let lowerCaseCoffeeToAdd = coffeeToAdd.map(function (element) {return element.name.toLowerCase()})
-//     // console.log(lowerCoffeeList)
-
-//     for (let i = 0; i < lowerCaseCoffeeList.length; i++) {
-//         if (lowerCaseCoffeeList[i] === lowerCaseCoffeeToAdd) {
-//             coffeeExist = true
-//             return `Coffee Already Exist`
-//         } 
-//     }
-
-//     // console.log(coffeeExist)
-//     if (coffeeExist === false) {
-//         coffeeList.push(coffeeToAdd)
-//     }
-    
-//     return coffeeList
-// }
-
-// let coffeeToAdd = [{
-//     name: "Aceh Coffee",
-//     price: 100000,
-//     quantity: 20,
-//     region: "Lampung",
-// }
-// ]
-
-// console.log(addNewCoffee(coffeeOnSaleList, coffeeToAdd))
-
-
-// //=========================================
-
-
-// function updateCoffeeInformation (coffeeList,itemName,toUpdate,newInformation) {
-//    for (let i = 0; i < coffeeList.length; i++) {
-//        if (toUpdate ===  "price") {
-//            if (coffeeList[i].name === itemName) {
-//             coffeeList[i].price = newInformation
-//            }
-//        } else if (toUpdate ===  "quantity") {
-//             if (coffeeList[i].name === itemName) {
-//             coffeeList[i].quantity = newInformation
-//            }
-//        } else if (toUpdate ===  "region"){
-//         if (coffeeList[i].name === itemName) {
-//             coffeeList[i].region = newInformation
-//            }
-//        }
-//    }
-//    return coffeeList
-// }
-
-// let itemName = "Matchlock Blend"
-// let toUpdate = "region"
-// let newInformation = "Aceh"
-
-// // console.log(updateCoffeeInformation(coffeeOnSaleList,itemName,toUpdate,newInformation))
-
-// //=========================================
-
-// function deleteCoffeeFromList(coffeeList,itemNameToDelete) {
-//     for (let i = 0; i < coffeeList.length; i++) {
-//         if (coffeeList[i].name === itemNameToDelete) {
-//             coffeeList.splice(i,1)
-//         }
-//     }
-//     return coffeeList
-// }
-
-// let itemToDelete = "Matchlock Blend"
-
-// // console.log(deleteCoffeeFromList(coffeeOnSaleList,itemToDelete))
-// //=========================================
-
-// function generateCard() {
-
-// }
-
-
-// //=========================================
-
-
 let coffeeOnSaleList = [
     {
-        image: "./asset/img/br 1.jpg",
+        image: "",
         name: "Kayo Sungai Penuh",
         price: 100000,
         quantity: 20,
-        description: "delicious",
+        description: "good",
     },
     {
         image: "",
         name: "Matchlock Blend",
         price: 120000,
         quantity: 20,
-        description: "delicious",
+        description: "enak",
     },
     {
         image: "",
-        name: "Aceh Coffee",
+        name: "Jakarta Coffee",
         price: 120000,
         quantity: 20,
-        description: "delicious",
+        description: "deliciousooooo",
     },
     {
         image: "",
-        name: "Aceh Coffee",
+        name: "Bali Coffee",
         price: 120000,
         quantity: 20,
-        description: "delicious",
+        description: "fancy",
     },
     {
         image: "",
@@ -168,19 +40,120 @@ let cart = []
 
 // selectors
 let mainBar = document.getElementById("cardContainer")
+let cartContainer = document.getElementById("cartContainer")
+let payButton = document.getElementById("payButton")
+let totalPriceText = document.getElementById("totalPriceItems")
 
 //addeventlistener
 mainBar.addEventListener('click', addToCart)
+payButton.addEventListener('click', pay)
+cartContainer.addEventListener('click', deleteCartItem)
+
+function pay(event) {
+    event.preventDefault()
+    for (let i = 0; i < cart.length; i++) {
+        // find item with name of item in cart and subtract quantity
+        coffeeOnSaleList.find(x => x.name === cart[i].name).quantity -= cart[i].checkoutQuantity
+    }
+    cart = []
+    clearCart()
+    clearCards()
+    generateCard(coffeeOnSaleList)
+}
+
+function deleteCartItem(event) {
+    event.preventDefault()
+    const idx = Number(event.target.attributes.value.value)
+
+    // delete item with index from button value
+    cart.splice(idx, 1)
+    clearCart()
+    generateCart(cart)
+}
 
 function addToCart(event) {
     event.preventDefault()
-    const idx = Number(event.target.attributes.value.index)
-    coffeeOnSaleList[idx]
-    cart.push(coffeeOnSaleList[idx])
-    // clearCard()
-    // generateCard(pokemons)
-    // // console.log(event.target.attributes.value.value)
-    console.log('masuk')
+    const idx = Number(event.target.attributes.value.value)
+    let itemDoesntExist = true
+
+    // check if cart has selected coffee
+    for (let i = 0; i < cart.length; i++) {
+        if (cart[i].name === coffeeOnSaleList[idx].name) {
+            itemDoesntExist = false
+        }
+    }
+
+    // if not make new item in cart with one checkout quantity
+    if (itemDoesntExist) {
+        let newItem = coffeeOnSaleList[idx]
+        newItem["checkoutQuantity"] = 1
+        cart.push(newItem)
+    } else { // else if it exist add the quantity by 1
+        for (let i = 0; i < cart.length; i++) {
+            if (cart[i].name === coffeeOnSaleList[idx].name) {
+                if(cart[i]["checkoutQuantity"] < coffeeOnSaleList[idx].quantity){
+                    cart[i]["checkoutQuantity"] += 1
+                }
+            }
+        }
+    }
+    clearCart()
+    generateCart(cart)
+}
+
+function generateCart(cart) {
+    // currency formatter
+    let currencyFormatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'IDR',
+    });
+    // price array to store the price to sum
+    let prices = []
+
+    for (let i = 0; i < cart.length; i++) {
+        let newCard = document.createElement('div')
+        newCard.classList.add('titleID') // please change to styling proper spacing
+
+        let itemName = document.createElement('p')
+        itemName.innerHTML = cart[i].name
+        newCard.appendChild(itemName)
+
+        let itemPrice = document.createElement('p')
+        itemPrice.innerHTML = currencyFormatter.format(cart[i].price)
+        newCard.appendChild(itemPrice)
+
+        let itemQuantity = document.createElement('p')
+        itemQuantity.innerHTML = cart[i].checkoutQuantity
+        newCard.appendChild(itemQuantity)
+
+        let itemTotal = document.createElement('p')
+        itemTotal.innerHTML = currencyFormatter.format(cart[i].checkoutQuantity * cart[i].price)
+        prices.push(cart[i].checkoutQuantity * cart[i].price)
+        newCard.appendChild(itemTotal)
+
+        let deleteButton = document.createElement('button')
+        deleteButton.innerHTML = 'Delete'
+        deleteButton.setAttribute('type', 'submit')
+        deleteButton.setAttribute('value', i)
+        newCard.appendChild(deleteButton)
+
+        cartContainer.appendChild(newCard)
+    }
+    // calculate total price with reduce function
+    totalPriceText.innerHTML = currencyFormatter.format(prices.reduce(sum))
+}
+
+function sum(total, num) {
+    return total + num;
+}
+
+function clearCart() {
+    cartContainer.innerHTML = ''
+    totalPriceText.innerHTML = 'IDR 0.00'
+}
+
+function clearCards() {
+    mainBar.innerHTML = ''
 }
 
 function generateCard(coffeeOnSaleList) {
@@ -191,7 +164,9 @@ function generateCard(coffeeOnSaleList) {
         let newRow = document.createElement('div')
         newRow.classList.add('row')
         for (let currentColumn = 0; currentColumn < maxNumberOfColumn; currentColumn++) {
-            if ((currentRow*maxNumberOfColumn) + currentColumn > coffeeOnSaleList.length - 1) {
+            // add bracket if error
+            let currentIndex = ((currentRow*maxNumberOfColumn) + currentColumn)
+            if ( currentIndex > coffeeOnSaleList.length - 1) {
                 break;
             }
             let column = document.createElement('div')
@@ -203,33 +178,37 @@ function generateCard(coffeeOnSaleList) {
 
             let itemName = document.createElement('h4')
             itemName.classList.add('namaBarang')
-            itemName.innerHTML = coffeeOnSaleList[(currentRow*maxNumberOfColumn) + currentColumn].name
+            itemName.innerHTML = coffeeOnSaleList[currentIndex].name
             cardContainer.appendChild(itemName)
 
             let itemImage = document.createElement('img')
             itemImage.classList.add('gambar')
-            itemImage.setAttribute('src', coffeeOnSaleList[(currentRow*maxNumberOfColumn) + currentColumn].image)
+            itemImage.setAttribute('src', `./asset/img/br ${currentIndex+1}.jpg`)
             cardContainer.appendChild(itemImage)
 
             let itemPrice = document.createElement('h3')
             itemPrice.classList.add('harga')
-            itemName.innerHTML = coffeeOnSaleList[(currentRow*maxNumberOfColumn) + currentColumn].price
+            itemName.innerHTML = coffeeOnSaleList[currentIndex].price
             cardContainer.appendChild(itemPrice)
 
             let itemQuant = document.createElement('h3')
             itemQuant.classList.add('quantity')
-            itemQuant.innerHTML = coffeeOnSaleList[(currentRow*maxNumberOfColumn) + currentColumn].quantity
+            itemQuant.innerHTML = coffeeOnSaleList[currentIndex].quantity
             cardContainer.appendChild(itemQuant)
 
             let itemDescription = document.createElement('p')
             itemDescription.classList.add('cardText')
-            itemDescription.innerHTML = coffeeOnSaleList[(currentRow*maxNumberOfColumn) + currentColumn].description
+            itemDescription.innerHTML = coffeeOnSaleList[currentIndex].description
             cardContainer.appendChild(itemDescription)
 
             let addToCartButton = document.createElement('button')
             addToCartButton.innerHTML = 'Add To Cart'
             addToCartButton.setAttribute('type', 'submit')
-            addToCartButton.setAttribute('value', (currentRow*maxNumberOfColumn) + currentColumn)
+            addToCartButton.setAttribute('value', currentIndex)
+            // disable button if quantity 0
+            if(coffeeOnSaleList[currentIndex].quantity === 0) {
+                addToCartButton.disabled = true
+            }
             cardContainer.appendChild(addToCartButton)
 
             column.appendChild(cardContainer)
@@ -240,30 +219,3 @@ function generateCard(coffeeOnSaleList) {
 }  
 
 generateCard(coffeeOnSaleList)
-
-
-/* <div class="card">
-    <div class="namaBarang">
-        <h4>Nama Barang</h4>
-    </div>
-    <div class="gambar">
-        <img src="./asset/img/test.jpg" alt="">
-    </div>
-    <div class="harga">
-        <h3>Rp 10.000</h3>
-    </div>
-    <div class="quantity">
-        <h3>10 Box</h3>
-    </div>
-    <div class="cardText">
-        <p>
-            Ini kopi jawana paling enak dan paling ngaco
-            siapa yang mau silahkan diambil mumpung murah
-        </p>
-    </div>
-    <div class="addBasket">
-        <form action="">
-            <input type="submit" value="Add To Cart">
-        </form>
-    </div>
-</div> */
