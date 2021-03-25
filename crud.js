@@ -170,7 +170,7 @@ let cart = []
 let mainBar = document.getElementById("cardContainer")
 
 //addeventlistener
-mainBars.addEventListener('click', addToCart)
+mainBar.addEventListener('click', addToCart)
 
 function addToCart(event) {
     event.preventDefault()
@@ -180,6 +180,7 @@ function addToCart(event) {
     // clearCard()
     // generateCard(pokemons)
     // // console.log(event.target.attributes.value.value)
+    console.log('masuk')
 }
 
 function generateCard(coffeeOnSaleList) {
@@ -232,6 +233,7 @@ function generateCard(coffeeOnSaleList) {
             cardContainer.appendChild(addToCartButton)
 
             column.appendChild(cardContainer)
+            newRow.appendChild(column)
         }
         mainBar.appendChild(newRow)
     }

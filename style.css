@@ -38,7 +38,7 @@ li{
     background-color: tomato;
     height: 1000px ;
 }
-.mainBar{
+.cardContainer {
     flex:80%;
     background-color: teal;
     height: 1000px;
