@@ -11,23 +11,23 @@ body{
 .navbar ul{
     height: 50px;
     display: flex;
-    background-color: #333333;
+    background-color: #ffffff;
     padding: 10px;
     list-style-type: none;
     /* width: fit-; */
     text-align: center;
-    color: snow;
+    color: rgb(255, 255, 255);
 }       
 li{
     width: 100%;
-    border: transparent rgb(172, 91, 91) 5px;
+    border: transparent rgb(255, 255, 255) 5px;
     margin: auto 80px;
     text-align: center;
     border-radius: 5px;
 }
 li:hover {
     width: 100%;
-    background-color: transparent rgb(89, 80, 139) 5px;
+    background-color: transparent rgb(255, 255, 255) 5px;
     margin: auto 80px;
     text-align: center;
     border-radius: 5px;
@@ -48,7 +48,7 @@ li:hover {
 }
 .sideBar{
     flex: 10%;
-    background-color: rgba(4, 133, 133, .7);
+    background-color: rgba(255, 255, 255, 0.7);
     height: auto ;
     border-radius: 5px;
     width: 100px;
@@ -56,7 +56,7 @@ li:hover {
 }
 .cardContainer {
     flex:90%;
-    background-color: rgba(3, 136, 136, .7);
+    background-color: rgba(255, 255, 255, 0.7);
     height: auto;
     border-radius:  10px;
 }
@@ -67,7 +67,7 @@ li:hover {
 .col{
     flex: 25%;
     padding: 30px;
-    background-color: rgba(133, 104, 10, 0.5);
+    background-color: rgb(255, 255, 255);
 }
 
 /* ini Side Bar */
@@ -76,14 +76,14 @@ li:hover {
     text-align: center;
     /* margin-top: 200px; */
     height: 500px;
-    background-color: rgba(4, 133, 133, .7);
+    background-color: rgb(255, 255, 255);
     padding-top: 20px;
 }
 .cardProfile:hover {
     text-align: center;
     /* margin-top: 200px; */
     height: 500px;
-    background-color: rgb(4, 133, 133);
+    background-color: rgb(255, 255, 255);
     transition-duration: 1s;
 }
 .namaProfil{
@@ -111,16 +111,15 @@ li:hover {
     margin: auto;
     width: 200px;   
     height: 370px;
-    background-color: rgba(224, 19, 19, 0.5);
+    background-color: rgb(255, 255, 255);
     
 }
 .card:hover {
     margin: auto;
     width: 200px;   
     height: 370px;
-    background-color: rgba(227, 241, 240, 0.9);
+    background-color: rgb(255, 255, 255);
     transition-duration: 1s;
-    
 }
 .namaBarang{
     padding-top: 10px;
@@ -156,7 +155,7 @@ img.gambar1 {
     margin-top: 10px;
     margin: 10px auto;
     text-align: center;
-    background-color: rgba(224, 19, 19, 0.5);
+    background-color: rgb(255, 255, 255);
 }
 .cardText:hover {
     width: fit-content;
@@ -164,7 +163,7 @@ img.gambar1 {
     margin: 10px auto;
     text-align: center;
     font-size: 50px;
-    background-color: rgba(227, 241, 240, 0.9);
+    background-color: rgb(255, 255, 255);
     transition-duration: 1s;
     cursor: pointer;
 }
@@ -176,6 +175,13 @@ img.gambar1 {
 button {
     margin-left: 50px;
     cursor: pointer;
+    display: inline-block;
+    padding: 10px;
+    background-color: rgb(255, 251, 251);
+    border-radius: 5px;
+    border: 10px;
+    border-color: solid rgb(102, 26, 26);
+    
 }
 
 /*END CARD*/
@@ -221,7 +227,7 @@ p3 {
 }
 
 .checkoutID{
-    background-color: wheat;
+    background-color: rgb(255, 255, 255);
     flex: 35%;
     height: auto;
 }
@@ -240,7 +246,7 @@ p3 {
 
 #itemsName {
     display:flex;
-    border: solid #333333 3px;
+    border: solid rgb(255, 255, 255) 3px;
 }
 #itemsName p{
     margin: 10px;
@@ -296,7 +302,7 @@ p3 {
     margin: 250px auto;
     /* margin-top: 250px; */
     /* padding-right: 100px; */
-    background-color: wheat;
+    background-color: rgb(255, 255, 255);
 }
 
 .productImg{
