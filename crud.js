@@ -1,38 +1,38 @@
 let coffeeOnSaleList = [
     {
         image: "",
-        name: "Kayo Sungai Penuh",
+        name: "Kayo Sungai P",
         price: 100000,
-        quantity: 20,
-        description: "good",
+        quantity: 27,
+        description: "Good",
     },
     {
         image: "",
-        name: "Matchlock Blend",
+        name: "Matchlock Bld",
         price: 120000,
-        quantity: 20,
-        description: "enak",
+        quantity: 5,
+        description: "Enak",
     },
     {
         image: "",
-        name: "Jakarta Coffee",
+        name: "Batavia Coffee",
         price: 120000,
-        quantity: 20,
-        description: "deliciousooooo",
+        quantity: 12,
+        description: "Strong",
     },
     {
         image: "",
-        name: "Bali Coffee",
+        name: "Bali Tri Coffee",
         price: 120000,
-        quantity: 20,
-        description: "fancy",
+        quantity: 1,
+        description: "Soury",
     },
     {
         image: "",
-        name: "Aceh Coffee",
+        name: "Aceh rr Coffee",
         price: 120000,
         quantity: 20,
-        description: "delicious",
+        description: "Delicious",
     },
 ]
 
@@ -113,29 +113,30 @@ function generateCart(cart) {
     for (let i = 0; i < cart.length; i++) {
         let newCard = document.createElement('div')
         newCard.classList.add('titleID') // please change to styling proper spacing
-
-        let itemName = document.createElement('p')
-        itemName.innerHTML = cart[i].name
-        newCard.appendChild(itemName)
-
-        let itemPrice = document.createElement('p')
-        itemPrice.innerHTML = currencyFormatter.format(cart[i].price)
-        newCard.appendChild(itemPrice)
-
-        let itemQuantity = document.createElement('p')
-        itemQuantity.innerHTML = cart[i].checkoutQuantity
-        newCard.appendChild(itemQuantity)
-
-        let itemTotal = document.createElement('p')
-        itemTotal.innerHTML = currencyFormatter.format(cart[i].checkoutQuantity * cart[i].price)
-        prices.push(cart[i].checkoutQuantity * cart[i].price)
-        newCard.appendChild(itemTotal)
-
+        
         let deleteButton = document.createElement('button')
         deleteButton.innerHTML = 'Delete'
         deleteButton.setAttribute('type', 'submit')
         deleteButton.setAttribute('value', i)
         newCard.appendChild(deleteButton)
+
+        let itemName = document.createElement('p1')
+        itemName.innerHTML = cart[i].name
+        newCard.appendChild(itemName)
+
+        let itemPrice = document.createElement('p2')
+        itemPrice.innerHTML = currencyFormatter.format(cart[i].price)
+        newCard.appendChild(itemPrice)
+
+        let itemQuantity = document.createElement('p3')
+        itemQuantity.innerHTML = cart[i].checkoutQuantity
+        newCard.appendChild(itemQuantity)
+
+        let itemTotal = document.createElement('p')
+        // itemTotal.innerHTML = currencyFormatter.format(cart[i].checkoutQuantity * cart[i].price)
+        prices.push(cart[i].checkoutQuantity * cart[i].price)
+        newCard.appendChild(itemTotal)
+
 
         cartContainer.appendChild(newCard)
     }
@@ -182,13 +183,13 @@ function generateCard(coffeeOnSaleList) {
             cardContainer.appendChild(itemName)
 
             let itemImage = document.createElement('img')
-            itemImage.classList.add('gambar')
+            itemImage.classList.add('gambar1')
             itemImage.setAttribute('src', `./asset/img/br ${currentIndex+1}.jpg`)
             cardContainer.appendChild(itemImage)
 
             let itemPrice = document.createElement('h3')
             itemPrice.classList.add('harga')
-            itemName.innerHTML = coffeeOnSaleList[currentIndex].price
+            // itemName.innerHTML = coffeeOnSaleList[currentIndex].price
             cardContainer.appendChild(itemPrice)
 
             let itemQuant = document.createElement('h3')
