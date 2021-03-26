@@ -5,6 +5,7 @@ let coffeeOnSaleList = [
         price: 100000,
         quantity: 20,
         description: "good",
+        id: 0,
     },
     {
         image: "",
@@ -12,27 +13,31 @@ let coffeeOnSaleList = [
         price: 120000,
         quantity: 20,
         description: "enak",
+        id: 1,
     },
     {
         image: "",
         name: "Jakarta Coffee",
-        price: 120000,
+        price: 150000,
         quantity: 20,
         description: "deliciousooooo",
+        id: 2,
     },
     {
         image: "",
         name: "Bali Coffee",
-        price: 120000,
+        price: 130000,
         quantity: 20,
         description: "fancy",
+        id: 3,
     },
     {
         image: "",
         name: "Aceh Coffee",
-        price: 120000,
+        price: 170000,
         quantity: 20,
         description: "delicious",
+        id: 4,
     },
 ]
 
@@ -48,6 +53,9 @@ let totalPriceText = document.getElementById("totalPriceItems")
 mainBar.addEventListener('click', addToCart)
 payButton.addEventListener('click', pay)
 cartContainer.addEventListener('click', deleteCartItem)
+cartContainer.addEventListener('click', decreseCartItem)
+
+
 
 function pay(event) {
     event.preventDefault()
@@ -67,6 +75,24 @@ function deleteCartItem(event) {
 
     // delete item with index from button value
     cart.splice(idx, 1)
+    clearCart()
+    generateCart(cart)
+}
+
+function decreseCartItem(event) {
+    event.preventDefault()
+    const idx = Number(event.target.attributes.value.value)
+    console.log(idx)
+
+    console.log(cart,"decrease cart")
+    // decrese item with index from button value
+    if (cart) {
+        for (let i = 0; i < cart.length; i++) {
+            if (cart[i].id === idx) {
+                cart[i].checkoutQuantity -= 1
+            } 
+        }
+    }
     clearCart()
     generateCart(cart)
 }
@@ -109,8 +135,11 @@ function generateCart(cart) {
     });
     // price array to store the price to sum
     let prices = []
+    console.log(cart)
 
     for (let i = 0; i < cart.length; i++) {
+        if (cart[i].checkoutQuantity > 0){
+
         let newCard = document.createElement('div')
         newCard.classList.add('titleID') // please change to styling proper spacing
 
@@ -137,10 +166,17 @@ function generateCart(cart) {
         deleteButton.setAttribute('value', i)
         newCard.appendChild(deleteButton)
 
+        let decreaseButton = document.createElement('button')
+        decreaseButton.innerHTML = '-'
+        decreaseButton.setAttribute('type', 'submit')
+        decreaseButton.setAttribute('value', cart[i].id)
+        newCard.appendChild(decreaseButton)
+
         cartContainer.appendChild(newCard)
     }
     // calculate total price with reduce function
     totalPriceText.innerHTML = currencyFormatter.format(prices.reduce(sum))
+    }
 }
 
 function sum(total, num) {
