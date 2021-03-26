@@ -1,3 +1,14 @@
+function homeFunction () {
+    window.location.reload()
+}
+
+function getLoginPage () {
+    window.open("index.html", "_self");
+}
+
+function logoutPage() {
+    window.open("valid.html", "_self");
+}
 let coffeeOnSaleList = [
     {
         image: "",
@@ -278,3 +289,4 @@ function generateCard(coffeeOnSaleList) {
 }  
 
 generateCard(coffeeOnSaleList)
+

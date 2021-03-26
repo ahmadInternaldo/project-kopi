@@ -12,8 +12,8 @@
         <div class="header">
             <div class="navbar">
                 <ul>
-                    <li><button type="button" onclick="">Home</button></li>
-                    <li><button type="button" onclick="">Logout</button></li>
+                    <li><button type="button" onclick="homeFunction()">Home</button></li>
+                    <li><button type="button" onclick="getLoginPage()">Logout</button></li>
                 </ul>
             </div>
             <div class="topRow">
@@ -52,7 +52,7 @@
                 <p id="totalPriceItems">IDR 0.00</p>
             </div>
             <div class="checkoutButton">
-                <button id="payButton">Pay</button>
+                <button id="payButton" onclick="logoutPage()">Pay</button>
             </div>
         </div>
         <div class="advertisement">
