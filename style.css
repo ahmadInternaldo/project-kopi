@@ -2,16 +2,16 @@
     margin: 0;
 }
 body{
-    background-color: thistle;
+    background-color: white;
 }
 .container{
     margin: 50px 100px;
-    background-color: rgba(133, 104, 10, 0.5);
+    background-color: white;
 }
 .navbar ul{
     height: 50px;
     display: flex;
-    background-color: rgba(175, 51, 51, .7);
+    background-color: #333333;
     padding: 10px;
     list-style-type: none;
     /* width: fit-; */
@@ -38,6 +38,7 @@ li:hover {
     border-radius: 5px;
 }
 .topRow img{
+    height: 1060px;
     width: 1703px;
 }
 
@@ -46,16 +47,17 @@ li:hover {
     display: flex;
 }
 .sideBar{
-    flex: 20%;
+    flex: 10%;
     background-color: rgba(4, 133, 133, .7);
-    height: 1230px ;
+    height: auto ;
     border-radius: 5px;
+    width: 100px;
     
 }
 .cardContainer {
-    flex:80%;
+    flex:90%;
     background-color: rgba(3, 136, 136, .7);
-    height: 1230;
+    height: auto;
     border-radius:  10px;
 }
 .row{
@@ -75,6 +77,7 @@ li:hover {
     /* margin-top: 200px; */
     height: 500px;
     background-color: rgba(4, 133, 133, .7);
+    padding-top: 20px;
 }
 .cardProfile:hover {
     text-align: center;
@@ -87,6 +90,18 @@ li:hover {
     padding-top: 50px;
     padding-bottom: 20px;
 }
+
+.cardProfile h4{
+    margin-top: 10px;
+    font-size: 30px;
+}
+
+.cardProfile p{
+    margin-top: 10px;
+    font-size: 20px;
+
+}
+
 
 
 
@@ -118,11 +133,12 @@ li:hover {
 }
 .gambar img{
     width:180px;
+    border-radius: 100px;
 }
 img.gambar1 {
     width: 12.5rem;
     background-size: cover;
-    border-radius: 0 100px 0 100px;
+    border-radius: 0 100px 0 100px; 
 }
 .harga h3{
     text-align: center;
@@ -207,6 +223,7 @@ p3 {
 .checkoutID{
     background-color: wheat;
     flex: 35%;
+    height: auto;
 }
 .titleID{
     display:flex;
@@ -265,5 +282,88 @@ p3 {
     margin: 25px;
     cursor: pointer;
     padding: 5px;
+}
+
+.advertisement{
+    height: auto;
+    width: auto;
+    /* color: blue; */
+}
+
+.detail{
+    width: 100%;
+    display: flex;
+    margin: 250px auto;
+    /* margin-top: 250px; */
+    /* padding-right: 100px; */
+    background-color: wheat;
+}
+
+.productImg{
+    width: 400px;
+    height: 500px;
+}
+
+.productID{
+    width: 400px;
+    margin-left: 350px;
+    margin-top: 100px; 
+    margin-right: 100px;
+}
+
+.productID h2{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.productID p{
+    margin-top: 10px;;
+    font-family: 'Nunito', sans-serif;
+    text-align: justify;
+
+    /* font-family: 'Source Sans Pro', sans-serif; */
+}
+
+.productImg img{
+    margin:100px auto;
+    width: 500px;
+    height: 300px;
+}
+.companyInfo{
+    background-color: #333333;
+    display: flex;
+}
+.logo{
+    flex:25%;
+    text-align: right;
+    padding-right: 150px;
+    padding-top: 20px;
+}
+.services   {
+    padding-top: 25px;
+    flex: 25%;
+    padding-bottom: 45px;
+}
+.services p{
+    color: white;
+    width: auto;
+    cursor: pointer;
+    font-family: 'Raleway', sans-serif;
+}
+.aboutus{
+    padding-top: 25px;
+    cursor: pointer;
+    color: white;
+    flex: 25%;
+    font-family: 'Raleway', sans-serif;
+}
+.companyAddress{
+    padding-top: 40px;;
+    flex: 25%;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+
+}
+.companyAddress h2{
+    color:yellowgreen;
 }
 
